@@ -1,0 +1,26 @@
+<monitor>
+    <name>SNMPMonitor</name>
+    <type>managed</type>
+    <description>SNMP Monitor</description>
+    <monitor-configuration></monitor-configuration>
+    <monitor-run-task>
+        <execution-style>periodic</execution-style>
+        <execution-frequency-in-seconds>60</execution-frequency-in-seconds>
+        <name>SNMP Monitor Run Task</name>
+        <display-name>SNMP Monitor Task</display-name>
+        <description>SNMP Monitor Task</description>
+        <type>java</type>
+        <execution-timeout-in-secs>60</execution-timeout-in-secs>
+        <task-arguments>
+            <argument name="configFile" is-required="true" default-value="SNMP-Config-EXAMPLE.json" />
+            <argument name="analytics_URL" is-required="true" default-value="https://analytics.api.appdynamics.com/" />
+            <argument name="analytics_apiAccountName" is-required="true" default-value="" />
+            <argument name="analytics_apiKey" is-required="true" default-value="" />
+        </task-arguments>
+        <java-task>
+            <classpath>SNMPMonitorExtension.jar:lib</classpath>
+            <load-jars-in-classpath-dirs>true</load-jars-in-classpath-dirs>
+            <impl-class>com.cisco.josouthe.SNMPMonitor</impl-class>
+        </java-task>
+    </monitor-run-task>
+</monitor>

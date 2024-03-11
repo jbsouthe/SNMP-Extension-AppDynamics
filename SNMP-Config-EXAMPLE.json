@@ -1,0 +1,40 @@
+[
+  {
+    "name": "First Machine",
+    "snmpEndpoint": {
+      "targetAddress": "udp:hostname/162",
+      "version": "2",
+      "communityName": "public",
+      "oids": {
+        ".1.3.6.1.4.1.2021.4.4.0": "Swap Available",
+        ".1.3.6.1.4.1.2021.11.9.0": "CPU User %",
+        ".1.3.6.1.4.1.2021.4.3.0": "Swap Total",
+        ".1.3.6.1.4.1.2021.10.1.3.1": "1 minute load average",
+        ".1.3.6.1.4.1.2021.10.1.3.3": "15 minute load average",
+        ".1.3.6.1.4.1.2021.10.1.3.2": "5 minute load average",
+        ".1.3.6.1.4.1.2021.11.11.0": "CPU Idle %"
+      }
+    }
+  },
+  {
+    "name": "Second Machine",
+    "snmpEndpoint": {
+      "targetAddress": "udp:secondmachine/162",
+      "version": "3",
+      "communityName": "public",
+      "authPassphrase": "authpass",
+      "authProtocol": "hmac384sha512",
+      "privPassphrase": "privPass",
+      "privProtocol": "aes256",
+      "oids": {
+        ".1.3.6.1.4.1.2021.4.4.0": "Swap Available",
+        ".1.3.6.1.4.1.2021.11.9.0": "CPU User %",
+        ".1.3.6.1.4.1.2021.4.3.0": "Swap Total",
+        ".1.3.6.1.4.1.2021.10.1.3.1": "1 minute load average",
+        ".1.3.6.1.4.1.2021.10.1.3.3": "15 minute load average",
+        ".1.3.6.1.4.1.2021.10.1.3.2": "5 minute load average",
+        ".1.3.6.1.4.1.2021.11.11.0": "CPU Idle %"
+      }
+    }
+  }
+]
