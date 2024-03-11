@@ -19,10 +19,10 @@ import java.util.Map;
 
 public class SNMPMonitor extends AManagedMonitor {
     private Logger logger = LogManager.getFormatterLogger();
-    private String metricPrefix = "Custom Metrics|Thales Monitor|";
+    private String metricPrefix = "Custom Metrics|SNMP Monitor|";
     private Analytics analyticsAPIClient = null;
 
-    ConfigEndpoint[] readThalesConfiguration(String configFileName) throws TaskExecutionException {
+    ConfigEndpoint[] readSNMPConfiguration(String configFileName) throws TaskExecutionException {
         ConfigEndpoint[] endpoints = null;
         try {
             Gson gson = new GsonBuilder().setPrettyPrinting().create();
@@ -46,7 +46,7 @@ public class SNMPMonitor extends AManagedMonitor {
         if( configMap.getOrDefault("configFile","unconfigured").equals("unconfigured") ){
             throw new TaskExecutionException("SNMP Config File Not Set, nothing to do");
         } else {
-            endpoints = readThalesConfiguration(taskExecutionContext.getTaskDir() +"/"+ configMap.get("configFile") );
+            endpoints = readSNMPConfiguration(taskExecutionContext.getTaskDir() +"/"+ configMap.get("configFile") );
             if( endpoints == null ) throw new TaskExecutionException("No End Points read from configuration, something must be wrong");
         }
         if( this.analyticsAPIClient == null )
